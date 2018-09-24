@@ -21,8 +21,8 @@ script:
    - npm run build:linux
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
-  file: "dist/react-electron_app-*.AppImage"
+  api_key: "GH_TOKEN"
+  file: "src/dist/react-electron_app-*.AppImage"
   skip_cleanup: true
   on:
     tags: true
