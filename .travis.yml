@@ -1,0 +1,28 @@
+language: node_js
+
+node_js:
+    - 8.11.4
+    
+install:
+   - npm install
+   - cd src
+   - npm install
+   
+before_script:
+   - cd node_modules
+   - rm -rf multicast-dns
+   - git clone https://github.com/alexey-martynov/multicast-dns.git -b multihomed-multicast
+   
+   
+script:
+   - cd ../../
+   - npm run dev
+   - cd src 
+   - npm run build:linux
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: "dist/react-electron_app-*.AppImage"
+  skip_cleanup: true
+  on:
+    tags: true
