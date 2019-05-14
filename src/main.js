@@ -111,10 +111,10 @@ function appOnUp(service) {
         console.log('Success');
         newelem.name = namearr[1];
         newelem.link = 'https://' + service.referer.address + ':' + service.port;
-        if (namearr[4] == 'Management') {
+        if (namearr[5] == 'Management') {
             newelem.state = 'configured';
         }
-        else if (namearr[4] == 'Unconfigured') {
+        else if (namearr[5] == 'Unconfigured') {
             newelem.state = 'unconfigured';
         }
         else {
